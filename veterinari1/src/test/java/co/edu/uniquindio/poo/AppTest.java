@@ -7,6 +7,8 @@
  */
 package co.edu.uniquindio.poo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
@@ -25,5 +27,44 @@ public class AppTest {
         LOG.info("Iniciado test shouldAnswerWithTrue");
         assertTrue(true);
         LOG.info("Finalizando test shouldAnswerWithTrue");
+    }
+
+
+    @Test
+
+    public void datosCompletos(){
+
+        Mascota mascota1 = new Mascota(1, 12, 9.0, "Cafe", "Toby", "Canino", "Husky", "Masculino");   
+
+        assertEquals(mascota1.edad(), 12);
+        assertEquals(mascota1.peso(), 9.0);
+        assertEquals(mascota1.color(), "Cafe");
+        assertEquals(mascota1.nombre(), "Toby");
+        assertEquals(mascota1.especie(), "Canino");
+        assertEquals(mascota1.raza(), "Husky");
+        assertEquals(mascota1.genero(), "Masculino");
+
+    }
+
+    @Test
+
+    public void agregarMascota(){
+
+        Veterinaria veterinaria = new Veterinaria("Amigos Peludos", null);
+
+        Mascota mascota1 = new Mascota(1, 9, 20.0, "Plata", "Kira", "Canino", "Husky", "Femenino");
+
+        veterinaria.agregarMascota(mascota1);
+
+        System.out.println(veterinaria.getListaMascotas());
+
+
+    }
+
+    @Test
+
+    public void datosNulos(){
+
+        Mascota mascota1 = new Mascota(0, 0, 0, null, null, null, null, null);
     }
 }
